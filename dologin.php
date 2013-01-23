@@ -42,7 +42,7 @@
                 session_register($myemailid);
                 $_SESSION['login_email_id'] = $myemailid;
                 $_SESSION['login_name'] = $myname;
-                header("location: index.html");
+                header("location: index.php");
             }
             else
             {
