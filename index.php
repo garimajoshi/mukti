@@ -1,10 +1,7 @@
-<?php
-	//session code here
-?>
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- May The Source Be With You -->
+	<!-- May The Source Be With You -->
 	<meta charset="utf-8">
 	<title>Mukti '13</title>
 	<link rel="stylesheet" href="stylesheets/reset.css">
@@ -25,29 +22,27 @@
 				<div id="club-logo"></div>
 				<div id="college-logo"></div>
 				<div id="banner-text">Mukti '13</div>
-				<div id="login-button">&nbsp;</div>
-				<div id="register-button">&nbsp;</div>
+				<div id="login-button">Sign In</div>
+				<div id="register-button">Register</div>
 				<div id="loginwrapper"></div>
 				<div id="login-dialog">
 				    <div style="padding-bottom: 20px;">Sign in</div>
-				    <form method="POST" action="dologin.php">
+				    <form method="post" action="dologin.php">
 				        <div><input name="email" type="text" placeholder="Email"/></div>
 				        <div><input name="password" type="password" placeholder="Password"/></div>
 				        <div><input name="submit" type="submit" value="Log In"/></div>
-				        <div><input name="_login" type="hidden" id="_login" value="1"/></div>
 				        <div><a href="#" style="text-decoration: none; font-size: 12pt; color: blue;">Forgot Password</a></div>
 				    </form>
 				</div>
 				<div id="register-dialog">
                     <div style="padding-bottom: 20px;">Register</div>
-                    <form method="POST" action="dologin.php">
-                        <div><input name="name" type="text" placeholder="Name"/></div>
-                        <div><input name="email" type="text" placeholder="Email"/></div>
-                        <div><input name="college" type="text" placeholder="College"/></div>
-                        <div><input name="phone" type="text" placeholder="Phone"/></div>
-                        <div><input name="password" type="password" placeholder="Password"/></div>
-                        <div><input name="confirmpassword" type="password" placeholder="Confirm Password"/></div>
-                        <div><input name="_register" type="hidden" id="_register" value="1"/></div>
+                    <form method="post" action="dologin.php" id="registerForm">
+                        <div><input name="name" id="name" type="text" placeholder="Name"/></div>
+                        <div><input name="email" id="email" type="text" placeholder="Email"/></div>
+                        <div><input name="college" id="college" type="text" placeholder="College"/></div>
+                        <div><input name="phone" id="phone" type="text" placeholder="Phone"/></div>
+                        <div><input name="password" id="password" type="password" placeholder="Password"/></div>
+                        <div><input name="confirmpassword" id="confirmpassword" type="password" placeholder="Confirm Password"/></div>
                         <div><input name="register" type="submit" value="Register"/></div>
                     </form>
                 </div>
