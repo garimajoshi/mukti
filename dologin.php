@@ -3,10 +3,26 @@
     session_start();
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        if(isiset($_POST['_register']))
+        if(isset($_POST['_register']))
         {
             //input validation and register user
-            
+            $myemailid = addslashes($_POST['email']);
+            $sql = "SELECT email_id FROM registered_users WHERE email_id='$myemailid'";
+            $result = mysql_query($sql);
+            $row = mysql_fetch_array($result);
+            $count = mysql_num_rows($result);
+            if($count == 0)
+            {
+                $myname = addslashes($_POST['name']);
+                $mypassword = addslashes($_POST['password']);
+                $myphone = addslashes($_POST['phone']);
+                $mycollege = addslashes($_POST['college']);
+                mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password) VALUES('$myemailid', '$myname', '$mycollege', '$mypassword')");
+            }
+            else
+            {
+                $error = "email already registered";
+            }
         }
         else if(isset($_POST['_login']))
         {
@@ -22,23 +38,23 @@
             
             if($count == 1)
             {
-                session_register("myusername");
+                session_register($myemailid);
                 $_SESSION['login_email_id'] = $myemailid;
                 $_SESSION['login_name'] = $myname;
                 header("location: index.html");
             }
             else
             {
-                $error="Invalid username/password";
+                $error = "Invalid username/password";
             }
         }
         else 
         {
-            $error="Invalid Page Requested";
+            $error = "Invalid Page Requested";
         }
     }
     else
     {
-        $error="Invalid Page Requested";
+        $error = "Invalid Page Requested";
     }
 ?>
