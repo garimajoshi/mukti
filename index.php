@@ -55,6 +55,14 @@ session_start();
                     			</form>
                 		</div>
                 		<?php
+					} else { 
+				?>
+				<div id="logout-button"><a href="logout.php">Sign Out</a></div>
+				<div id="welcome-bar">
+					<div>Hi, <?php echo $_SESSION['login_name']; ?></div>
+					<div>Reg No: #00001</div>
+				</div>
+				<?php
 					}
 				?>
 			</div>

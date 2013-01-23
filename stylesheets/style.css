@@ -140,6 +140,21 @@
 	background-color: white;
 }
 
+#logout-button {
+	font: 12pt 'Monda-Regular';
+}
+
+#logout-button a {
+	text-decoration: none;
+	color: white;
+}
+
+#welcome-bar {
+	color: white;
+	font: 12pt 'Monda-Regular';
+	line-height: 25px;
+}
+
 #login-button {
 	font: 12pt 'Monda-Regular';
 }
