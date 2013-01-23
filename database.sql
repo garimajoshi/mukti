@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS `registered_users` (
     `name` varchar(30) NOT NULL,
     `college` varchar(50) NOT NULL,
     `phone` varchar(20) NOT NULL,
-    `password` varchar(30) NOT NULL,
+    `password` varchar(50) NOT NULL,
     PRIMARY KEY (`email_id`)
     );
