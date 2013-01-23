@@ -15,6 +15,7 @@
             {
                 $myname = addslashes($_POST['name']);
                 $mypassword = addslashes($_POST['password']);
+                $mypassword = md5($mypassword);
                 $myphone = addslashes($_POST['phone']);
                 $mycollege = addslashes($_POST['college']);
                 mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword')") or die(mysql_error());
@@ -22,7 +23,7 @@
             }
             else
             {
-                $error = "email already registered";
+                $error = "Email already registered";
             }
         }
         else if(isset($_POST['_login']))
@@ -30,6 +31,7 @@
             //check login credentials
             $myemailid = addslashes($_POST['email']);
             $mypassword = addslashes($_POST['password']);
+            $mypassword = md5($mypassword);
 
             $sql = "SELECT email_id FROM registered_users WHERE email_id='$myemailid' and password='$mypassword'";
             $result = mysql_query($sql) or die(mysql_error());
