@@ -60,7 +60,7 @@ session_start();
 				<div id="logout-button"><a href="logout.php">Sign Out</a></div>
 				<div id="welcome-bar">
 					<div>Hi, <?php echo $_SESSION['login_name']; ?></div>
-					<div>Reg No: #00001</div>
+					<div>Reg No: <?php echo $_SESSION['user_id']; ?></div>
 				</div>
 				<?php
 					}
