@@ -34,7 +34,7 @@ html, body, #container{
 	position: absolute;
 	height: 80px;
 	width: 80px;
-	left: 30%;
+	left: 32%;
 	background: url('images/lug_logo_hd_small.png');
 }
 
@@ -43,7 +43,7 @@ html, body, #container{
 	position: absolute;
 	height: 80px;
 	width: 80px;
-	right: 30%;
+	right: 32%;
 	background: url('images/clg_logo_hd_small.png');
 }
 
@@ -51,10 +51,12 @@ html, body, #container{
 	top: 30px;
 	position: absolute;
 	height: 32px;
-	width: 32px;
+	width: 80px;
 	right: 20px;
-	background: url('images/signin.png');
+	background: url('images/signin.png') no-repeat;
+	background-position: 25px 0px;
 	opacity: 0.7;
+	padding-top: 25px;
 }
 
 #login-button:hover {
@@ -66,10 +68,12 @@ html, body, #container{
 	top: 30px;
 	position: absolute;
 	height: 32px;
-	width: 32px;
-	right: 60px;
-	background: url('images/user.png');
+	width: 80px;
+	right: 100px;
+	background: url('images/user.png') no-repeat;
+	background-position: 25px 0px;
 	opacity: 0.7;
+	padding-top: 25px;
 }
 
 #register-button:hover {
@@ -268,4 +272,34 @@ html, body, #container{
 
 #mailing-list div{
 	float: left;
+}
+
+.logo-wrapper {
+	width: 300px;
+}
+
+#ungineering {
+	height: 169px;
+	width: 300px;
+	background: url('images/logo_ungineering_sponsor.png');
+}
+
+#knowafest {
+	height: 100px;
+	width: 300px;
+	background: url('images/knowafest.png');
+}
+
+.contact-left-column {
+	text-align: left;
+	padding-right: 85px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.contact-right-column {
+	text-align: right;
+	padding-left: 85px;
+	padding-top: 20px;
+	padding-bottom: 10px;
 }

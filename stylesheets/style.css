@@ -118,6 +118,7 @@
 #banner-text
 {
 	font: 48px 'UnicaOne-Regular';
+	letter-spacing: 10px;
 }
 
 #club-logo{
@@ -137,6 +138,14 @@
 	right: 0px;
 	left: 0px;
 	background-color: white;
+}
+
+#login-button {
+	font: 12pt 'Monda-Regular';
+}
+
+#register-button {
+	font: 12pt 'Monda-Regular';
 }
 
 #login-dialog,
@@ -246,4 +255,8 @@
      -moz-transition: background-position 0.1s linear;
        -o-transition: background-position 0.1s linear;
           transition: background-position 0.1s linear;
+}
+
+.validationerror {
+	background-color: #FFDDD0 !important;
 }
