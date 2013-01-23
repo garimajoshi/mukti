@@ -1,3 +1,6 @@
+<?php
+	//session code here
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +30,7 @@
 				<div id="loginwrapper"></div>
 				<div id="login-dialog">
 				    <div style="padding-bottom: 20px;">Sign in</div>
-				    <form method="POST" action="/dologin.php">
+				    <form method="POST" action="dologin.php">
 				        <div><input name="email" type="text" placeholder="Email"/></div>
 				        <div><input name="password" type="password" placeholder="Password"/></div>
 				        <div><input name="submit" type="submit" value="Log In"/></div>
@@ -37,7 +40,7 @@
 				</div>
 				<div id="register-dialog">
                     <div style="padding-bottom: 20px;">Register</div>
-                    <form method="POST" action="/dologin.php">
+                    <form method="POST" action="dologin.php">
                         <div><input name="name" type="text" placeholder="Name"/></div>
                         <div><input name="email" type="text" placeholder="Email"/></div>
                         <div><input name="college" type="text" placeholder="College"/></div>
