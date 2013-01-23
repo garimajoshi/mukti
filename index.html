@@ -27,22 +27,24 @@
 				<div id="loginwrapper"></div>
 				<div id="login-dialog">
 				    <div style="padding-bottom: 20px;">Sign in</div>
-				    <form method="POST" action="/dologin">
+				    <form method="POST" action="/dologin.php">
 				        <div><input name="email" type="text" placeholder="Email"/></div>
 				        <div><input name="password" type="password" placeholder="Password"/></div>
 				        <div><input name="submit" type="submit" value="Log In"/></div>
+				        <div><input name="_login" type="hidden" id="_login" value="1"/></div>
 				        <div><a href="#" style="text-decoration: none; font-size: 12pt; color: blue;">Forgot Password</a></div>
 				    </form>
 				</div>
 				<div id="register-dialog">
                     <div style="padding-bottom: 20px;">Register</div>
-                    <form method="POST" action="/dologin">
+                    <form method="POST" action="/dologin.php">
                         <div><input name="name" type="text" placeholder="Name"/></div>
                         <div><input name="email" type="text" placeholder="Email"/></div>
                         <div><input name="college" type="text" placeholder="College"/></div>
                         <div><input name="phone" type="text" placeholder="Phone"/></div>
                         <div><input name="password" type="password" placeholder="Password"/></div>
                         <div><input name="confirmpassword" type="password" placeholder="Confirm Password"/></div>
+                        <div><input name="_register" type="hidden" id="_register" value="1"/></div>
                         <div><input name="register" type="submit" value="Register"/></div>
                     </form>
                 </div>
