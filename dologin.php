@@ -32,7 +32,7 @@
             $myemailid = addslashes($_POST['email']);
             $mypassword = addslashes($_POST['password']);
             $mypassword = md5($mypassword);
-
+            echo "hi";
             $sql = "SELECT email_id FROM registered_users WHERE email_id='$myemailid' and password='$mypassword'";
             $result = mysql_query($sql) or die(mysql_error());
             $row = mysql_fetch_array($result);
