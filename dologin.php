@@ -3,7 +3,7 @@
     session_start();
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        if(isset($_POST['_register']))
+        if(isset($_POST['register']))
         {
             //input validation and register user
             $myemailid = addslashes($_POST['email']);
@@ -26,7 +26,7 @@
                 $error = "Email already registered";
             }
         }
-        else if(isset($_POST['_login']))
+        else if(isset($_POST['signin']))
         {
             //check login credentials
             $myemailid = addslashes($_POST['email']);
