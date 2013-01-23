@@ -47,7 +47,7 @@ html, body, #container{
 	background: url('images/clg_logo_hd_small.png');
 }
 
-#logout-button {
+#logout-button a {
 	top: 30px;
 	position: absolute;
 	height: 32px;
@@ -59,7 +59,7 @@ html, body, #container{
 	padding-top: 25px;
 }
 
-#logout-button:hover {
+#logout-button a:hover {
 	opacity: 1;
 }
 
