@@ -22,6 +22,10 @@
 				<div id="club-logo"></div>
 				<div id="college-logo"></div>
 				<div id="banner-text">Mukti '13</div>
+				
+				<?php
+					if (!isset($_SESSION['login_name'])) {
+				?>
 				<div id="login-button">Sign In</div>
 				<div id="register-button">Register</div>
 				<div id="loginwrapper"></div>
@@ -35,17 +39,20 @@
 				    </form>
 				</div>
 				<div id="register-dialog">
-                    <div style="padding-bottom: 20px;">Register</div>
-                    <form method="post" action="dologin.php" id="registerForm">
-                        <div><input name="name" id="name" type="text" placeholder="Name"/></div>
-                        <div><input name="email" id="email" type="text" placeholder="Email"/></div>
-                        <div><input name="college" id="college" type="text" placeholder="College"/></div>
-                        <div><input name="phone" id="phone" type="text" placeholder="Phone"/></div>
-                        <div><input name="password" id="password" type="password" placeholder="Password"/></div>
-                        <div><input name="confirmpassword" id="confirmpassword" type="password" placeholder="Confirm Password"/></div>
-                        <div><input name="register" type="submit" value="Register"/></div>
-                    </form>
-                </div>
+                    			<div style="padding-bottom: 20px;">Register</div>
+                    			<form method="post" action="dologin.php" id="registerForm">
+                        			<div><input name="name" id="name" type="text" placeholder="Name"/></div>
+                        			<div><input name="email" id="email" type="text" placeholder="Email"/></div>
+                        			<div><input name="college" id="college" type="text" placeholder="College"/></div>
+                        			<div><input name="phone" id="phone" type="text" placeholder="Phone"/></div>
+                        			<div><input name="password" id="password" type="password" placeholder="Password"/></div>
+                       				<div><input name="confirmpassword" id="confirmpassword" type="password" placeholder="Confirm Password"/></div>
+                        			<div><input name="register" type="submit" value="Register"/></div>
+                    			</form>
+                		</div>
+                		<?php
+					}
+				?>
 			</div>
 		</div>
 
