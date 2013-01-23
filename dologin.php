@@ -19,11 +19,15 @@
                 $myphone = addslashes($_POST['phone']);
                 $mycollege = addslashes($_POST['college']);
                 mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword')") or die(mysql_error());
-                echo "you have registered successfully";
+                // registered successfully
+                $_SESSION['login_email_id'] = $myemailid;
+                $_SESSION['login_name'] = $myname;
+				header("location: index.php");
             }
             else
             {
                 $error = "Email already registered";
+                echo $error;
             }
         }
         else if(isset($_POST['signin']))
@@ -40,7 +44,6 @@
             
             if($count == 1)
             {
-                session_register($myemailid);
                 $_SESSION['login_email_id'] = $myemailid;
                 $_SESSION['login_name'] = $myname;
                 header("location: index.php");
