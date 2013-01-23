@@ -8,26 +8,38 @@ $(document).ready(function() {
   	$('#login-button').click( function() {
   		var dialogdiv = $('#login-dialog');
   		if (dialogdiv.css('display') == 'none') {
-  			dialogdiv.css('display', 'block');
-  			$('#loginwrapper').css('display', 'block');
+  			dialogdiv.show();
+  			$('#loginwrapper').show();
   			setTimeout(function() {
-  				dialogdiv.css('opacity', 1);
+  				dialogdiv.css('top', '70px');
   			}, 20);
-  		} else {
-  			dialogdiv.css('opacity', 0);
+  		}
+  	});
+  	$('#register-button').click( function() {
+  		var dialogdiv = $('#register-dialog');
+  		if (dialogdiv.css('display') == 'none') {
+  			dialogdiv.show();
+  			$('#loginwrapper').show();
   			setTimeout(function() {
-  				dialogdiv.css('display', 'none');
-  				$('#loginwrapper').css('display', 'none');
-  			}, 300);
+  				dialogdiv.css('top', '70px');
+  			}, 20);
   		}
   	});
   	$('#loginwrapper').click( function() {
   		var dialogdiv = $('#login-dialog');
   		if (dialogdiv.css('display') == 'block') {
-  			dialogdiv.css('opacity', 0);
+  			dialogdiv.css('top', '-300px');
   			setTimeout(function() {
-  				dialogdiv.css('display', 'none');
-  				$('#loginwrapper').css('display', 'none');
+  				dialogdiv.hide();
+  				$('#loginwrapper').hide();
+  			}, 300);
+  		}
+  		var dialogdiv1 = $('#register-dialog');
+  		if (dialogdiv1.css('display') == 'block') {
+  			dialogdiv1.css('top', '-600px');
+  			setTimeout(function() {
+  				dialogdiv1.hide();
+  				$('#loginwrapper').hide();
   			}, 300);
   		}
   	});
