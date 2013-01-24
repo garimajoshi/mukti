@@ -18,7 +18,8 @@
                 $mypassword = md5($mypassword);
                 $myphone = addslashes($_POST['phone']);
                 $mycollege = addslashes($_POST['college']);
-                mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword')") or die(mysql_error());
+                $confirmationcode = MakeConfirmationMd5($myemailid);
+                mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password, confirmation_code) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword', '$confirmationcode')") or die(mysql_error());
                 // registered successfully
                 $_SESSION['login_email_id'] = $myemailid;
                 $_SESSION['login_name'] = $myname;
@@ -61,6 +62,18 @@
             $error = "Invalid Page Requested";
             echo $error;
         }
+    }
+    else if($_SERVER["REQUEST_METHOD"] == "GET")
+    {
+    	if(isset($_GET['code']))
+    	{
+    		//check validity of activation code
+    	}
+    	else
+   	{
+        	$error = "Invalid Page Requested";
+        	echo $error;
+    	}
     }
     else
     {
