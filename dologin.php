@@ -1,5 +1,6 @@
 <?php
-	include("config.php");
+	require("config.php");
+	require("utility.php")
 	session_start();
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
