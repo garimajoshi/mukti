@@ -92,23 +92,23 @@ $(document).ready(function() {
   
   function setupLoginValidate() {
 
-    $('#email').keyup( function() {
+    $('#lemail').keyup( function() {
     	$(this).removeClass('validationerror'); 
     });
-    $('#password').keyup( function() {
+    $('#lpassword').keyup( function() {
     	$(this).removeClass('validationerror'); 
     });
 
   	$('#loginForm').submit( function () {
   		var toReturn = true;
-  		var email = $('#email').val();
+  		var email = $('#lemail').val();
   		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false) {
   			toReturn = false;
-  			$('#email').addClass('validationerror');
+  			$('#lemail').addClass('validationerror');
   		}
-  		if ($('#password').val() == '') {
+  		if ($('#lpassword').val() == '') {
   			toReturn = false;
-  			$('#password').addClass('validationerror');
+  			$('#lpassword').addClass('validationerror');
   		}
   		return toReturn;
   	});
