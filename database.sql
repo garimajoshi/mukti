@@ -6,6 +6,9 @@ CREATE TABLE IF NOT EXISTS `registered_users` (
     `name` varchar(30) NOT NULL,
     `confirmation_code` varchar(50) NOT NULL,
     `college` varchar(50) NOT NULL,
+    `department` varchar(50) NOT NULL,
+    `city` varchar(50) NOT NULL,
+    `year` varchar(20) NOT NULL,
     `phone` varchar(20) NOT NULL,
     `password` varchar(50) NOT NULL,
     PRIMARY KEY (`id`)
