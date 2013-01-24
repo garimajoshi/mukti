@@ -1,6 +1,7 @@
 <?php
-include("../phpmailer/class.phpmailer.php");
-include("../phpmailer/class.smtp.php");
+require("../phpmailer/class.phpmailer.php");
+require("../phpmailer/class.smtp.php");
+require("./validator.php");
 
 function GetAbsoluteURLFolder()
 {
@@ -17,7 +18,6 @@ function MakeConfirmationMd5($email)
 	return urlencode(md5($email.$randno1.$myrandom.$randno2));
 }
 
-/*
 function SendUserConfirmationEmail($email_id, $name, $confirmcode)
 {
 	$mailer = new PHPMailer();
@@ -53,5 +53,31 @@ function SendUserConfirmationEmail($email_id, $name, $confirmcode)
 	}
 	return true;
 }
-*/
+
+function ValidateRegistrationSubmission()
+    {
+        $validator = new FormValidator();
+        $validator->addValidation("name","req","Please fill in Name");
+        $validator->addValidation("email","email","The input for Email should be a valid email value");
+        $validator->addValidation("email","req","Please fill in Email");
+        $validator->addValidation("college","req","Please fill in your College");
+        $validator->addValidation("password","req","Please fill in Password");
+        $validator->addValidation("department","req","Please fill in your Department");
+        $validator->addValidation("year","req","Please fill in your year of Study");
+        $validator->addValidation("city","req","Please fill in your City");
+        
+        if(!$validator->ValidateForm())
+        {
+            $error='';
+            $error_hash = $validator->GetErrors();
+            foreach($error_hash as $inpname => $inp_err)
+            {
+                $error .= $inpname.':'.$inp_err."\n";
+            }
+            error_message .= $error."\r\n";
+            return false;
+        }        
+        return true;
+    }
+    
 ?>
