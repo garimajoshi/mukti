@@ -25,11 +25,13 @@
 				// registered successfully
 				$message = "Successfully Registered, check your mail for activation";
 				echo $message;
+				header("location: ../index.php");
 			}
 			else
 			{
 				$error = "Email already registered";
 				echo $error;
+				header("location: ../index.php");
 			}
 		}
 		else if(isset($_POST['signin']))
@@ -56,12 +58,14 @@
 			{
 				$error = "Invalid username/password";
 				echo $error;
+				header("location: ../index.php");
 			}
 		}
 		else 
 		{
 			$error = "Invalid Page Requested";
 			echo $error;
+			header("location: ../index.php");
 		}
 	}
 	else if($_SERVER["REQUEST_METHOD"] == "GET")
@@ -90,17 +94,20 @@
 			{
 				$error = "Invalid/Expired confirmation code";
 				echo $error;
+				header("location: ../index.php");
 			}
 		}
 		else
 		{
 			$error = "Invalid Page Requested";
 			echo $error;
+			header("location: ../index.php");
 		}
 	}
 	else
 	{
 		$error = "Invalid Page Requested";
 		echo $error;
+		header("location: ../index.php");
 	}
 ?>
