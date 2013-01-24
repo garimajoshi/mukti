@@ -1,5 +1,5 @@
 <?php
-    include('config.php');
+    require('config.php');
     session_start();
 
     $user_check_email_id = $_SESSION['login_email_id'];
