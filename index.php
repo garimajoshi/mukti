@@ -49,6 +49,9 @@ session_start();
                         			<div><input name="email" id="email" type="text" placeholder="Email"/></div>
                         			<div><input name="college" id="college" type="text" placeholder="College"/></div>
                         			<div><input name="phone" id="phone" type="text" placeholder="Phone"/></div>
+                        			<div><input name="department" id="department" type="text" placeholder="Department"/></div>
+                        			<div><input name="year_of_study" id="year_of_study" type="text" placeholder="Year"/></div>
+                        			<div><input name="city" id="city" type="city" placeholder="City"/></div>
                         			<div><input name="password" id="password" type="password" placeholder="Password"/></div>
                        				<div><input name="confirmpassword" id="confirmpassword" type="password" placeholder="Confirm Password"/></div>
                         			<div><input name="register" type="submit" value="Register"/></div>
