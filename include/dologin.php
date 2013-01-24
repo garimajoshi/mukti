@@ -21,10 +21,10 @@
 				$mycollege = addslashes($_POST['college']);
 				$confirmationcode = MakeConfirmationMd5($myemailid);
 				mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password, confirmation_code) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword', '$confirmationcode')") or die(mysql_error());
+
 				// registered successfully
-				$_SESSION['login_email_id'] = $myemailid;
-				$_SESSION['login_name'] = $myname;
-				header("location: ../index.php");
+				$message = "Successfully Registered, check your mail for activation";
+				echo $message;
 			}
 			else
 			{
@@ -79,7 +79,7 @@
 			
 			if($count == 1)
 			{
-				$sql = "UPDATE registered_users SET confirmation_code='y' WHERE and confirmation_code='$confirmationcode'";
+				$sql = "UPDATE registered_users SET confirmation_code='y' WHERE confirmation_code='$confirmationcode'";
 				$result = mysql_query($sql) or die(mysql_error());
 				$_SESSION['login_email_id'] = $myemailid;
 				$_SESSION['login_name'] = $myname;
