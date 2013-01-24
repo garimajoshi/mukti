@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS `registered_users` (
     `college` varchar(50) NOT NULL,
     `phone` varchar(20) NOT NULL,
     `password` varchar(50) NOT NULL,
-    PRIMARY KEY (`email_id`)
+    PRIMARY KEY (`id`)
     );
