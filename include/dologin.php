@@ -2,11 +2,11 @@
 	require("./config.php");
 	require("./utility.php");
 	session_start();
-	header( "refresh:5;url=../index.php" );
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if(isset($_POST['register']))
 		{
+			header( "refresh:5;url=../index.php" );
 			//input validation and register user
 			$myemailid = addslashes($_POST['email']);
 			$sql = "SELECT email_id FROM registered_users WHERE email_id='$myemailid'";
@@ -54,15 +54,18 @@
 				$_SESSION['login_email_id'] = $myemailid;
 				$_SESSION['login_name'] = $myname;
 				$_SESSION['user_id'] = $userid;
+				header("location: ../index.php");
 			}
 			else
 			{
+				header( "refresh:5;url=../index.php" );
 				$error = "Invalid username/password";
 				echo $error;
 			}
 		}
 		else 
 		{
+			header( "refresh:5;url=../index.php" );
 			$error = "Invalid Page Requested";
 			echo $error;
 		}
@@ -87,21 +90,25 @@
 				$_SESSION['login_email_id'] = $myemailid;
 				$_SESSION['login_name'] = $myname;
 				$_SESSION['user_id'] = $userid;
+				header("location: ../index.php");
 			}
 			else
 			{
+				header( "refresh:5;url=../index.php" );	
 				$error = "Invalid/Expired confirmation code";
 				echo $error;
 			}
 		}
 		else
 		{
+			header( "refresh:5;url=../index.php" );
 			$error = "Invalid Page Requested";
 			echo $error;
 		}
 	}
 	else
 	{
+		header( "refresh:5;url=../index.php" );
 		$error = "Invalid Page Requested";
 		echo $error;
 	}
