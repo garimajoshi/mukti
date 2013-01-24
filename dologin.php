@@ -69,7 +69,7 @@
 		{
 			//check validity of activation code
 			$confirmationcode = $_GET['code'];
-			$sql = "SELECT email_id, name, id FROM registered_users WHERE confirmation_code=$confirmationcode";
+			$sql = "SELECT email_id, name, id FROM registered_users WHERE confirmation_code='$confirmationcode'";
 			$result = mysql_query($sql) or die(mysql_error());
 			$row = mysql_fetch_array($result);
 			$myname = $row['name'];
@@ -78,7 +78,7 @@
 			
 			if($count == 1)
 			{
-				$sql = "UPDATE registered_users SET confirmation_code='y' WHERE and confirmation_code=$confirmationcode";
+				$sql = "UPDATE registered_users SET confirmation_code='y' WHERE and confirmation_code='$confirmationcode'";
 				$result = mysql_query($sql) or die(mysql_error());
 				$_SESSION['login_email_id'] = $myemailid;
 				$_SESSION['login_name'] = $myname;
