@@ -2,6 +2,7 @@
 	require("./config.php");
 	require("./utility.php");
 	session_start();
+	header( "refresh:5;url=../index.php" );
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if(isset($_POST['register']))
@@ -28,13 +29,11 @@
 				// registered successfully
 				$message = "Successfully Registered, check your mail for activation";
 				echo $message;
-				header("location: ../index.php");
 			}
 			else
 			{
 				$error = "Email already registered";
 				echo $error;
-				header("location: ../index.php");
 			}
 		}
 		else if(isset($_POST['signin']))
@@ -55,20 +54,17 @@
 				$_SESSION['login_email_id'] = $myemailid;
 				$_SESSION['login_name'] = $myname;
 				$_SESSION['user_id'] = $userid;
-				header("location: ../index.php");
 			}
 			else
 			{
 				$error = "Invalid username/password";
 				echo $error;
-				header("location: ../index.php");
 			}
 		}
 		else 
 		{
 			$error = "Invalid Page Requested";
 			echo $error;
-			header("location: ../index.php");
 		}
 	}
 	else if($_SERVER["REQUEST_METHOD"] == "GET")
@@ -91,26 +87,22 @@
 				$_SESSION['login_email_id'] = $myemailid;
 				$_SESSION['login_name'] = $myname;
 				$_SESSION['user_id'] = $userid;
-				header("location: ../index.php");
 			}
 			else
 			{
 				$error = "Invalid/Expired confirmation code";
 				echo $error;
-				header("location: ../index.php");
 			}
 		}
 		else
 		{
 			$error = "Invalid Page Requested";
 			echo $error;
-			header("location: ../index.php");
 		}
 	}
 	else
 	{
 		$error = "Invalid Page Requested";
 		echo $error;
-		header("location: ../index.php");
 	}
 ?>
