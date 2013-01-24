@@ -56,6 +56,15 @@ $(document).ready(function() {
     $('#college').keyup( function() {
     	$(this).removeClass('validationerror'); 
     });
+    $('#department').keyup( function() {
+    	$(this).removeClass('validationerror'); 
+    });
+    $('#year_of_study').keyup( function() {
+    	$(this).removeClass('validationerror'); 
+    });
+    $('#city').keyup( function() {
+    	$(this).removeClass('validationerror'); 
+    });
     $('#password').keyup( function() {
     	$(this).removeClass('validationerror'); 
     });
@@ -81,6 +90,18 @@ $(document).ready(function() {
   		if ($('#college').val() == '') {
   			toReturn = false;
   			$('#college').addClass('validationerror');
+  		}
+  		if ($('#department').val() == '') {
+  			toReturn = false;
+  			$('#department').addClass('validationerror');
+  		}
+  		if ($('#year_of_study').val() == '') {
+  			toReturn = false;
+  			$('#year_of_study').addClass('validationerror');
+  		}
+  		if ($('#city').val() == '') {
+  			toReturn = false;
+  			$('#city').addClass('validationerror');
   		}
   		if ($('#password').val() == '') {
   			toReturn = false;
