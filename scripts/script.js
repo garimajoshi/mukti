@@ -90,7 +90,7 @@ $(document).ready(function() {
   	});
   }
   
-  function setupRegistrationValidate() {
+  function setupLoginValidate() {
 
     $('#email').keyup( function() {
     	$(this).removeClass('validationerror'); 
