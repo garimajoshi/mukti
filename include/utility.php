@@ -17,6 +17,7 @@ function MakeConfirmationMd5($email)
 	return urlencode(md5($email.$randno1.$myrandom.$randno2));
 }
 
+/*
 function SendUserConfirmationEmail($email_id, $name, $confirmcode)
 {
 	$mailer = new PHPMailer();
@@ -52,4 +53,5 @@ function SendUserConfirmationEmail($email_id, $name, $confirmcode)
 	}
 	return true;
 }
+*/
 ?>
