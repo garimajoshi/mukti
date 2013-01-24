@@ -35,7 +35,7 @@ session_start();
 				<div id="loginwrapper"></div>
 				<div id="login-dialog">
 				    <div style="padding-bottom: 20px;">Sign in</div>
-				    <form method="post" action="dologin.php" id="loginForm">
+				    <form method="post" action="./include/dologin.php" id="loginForm">
 				        <div><input name="email" id="lemail" type="text" placeholder="Email"/></div>
 				        <div><input name="password" id="lpassword" type="password" placeholder="Password"/></div>
 				        <div><input name="signin" type="submit" value="Log In"/></div>
@@ -44,7 +44,7 @@ session_start();
 				</div>
 				<div id="register-dialog">
                     			<div style="padding-bottom: 20px;">Register</div>
-                    			<form method="post" action="dologin.php" id="registerForm">
+                    			<form method="post" action="./include/dologin.php" id="registerForm">
                         			<div><input name="name" id="name" type="text" placeholder="Name"/></div>
                         			<div><input name="email" id="email" type="text" placeholder="Email"/></div>
                         			<div><input name="college" id="college" type="text" placeholder="College"/></div>
@@ -57,7 +57,7 @@ session_start();
                 		<?php
 					} else { 
 				?>
-				<div id="logout-button"><a href="logout.php">Sign Out</a></div>
+				<div id="logout-button"><a href="./include/logout.php">Sign Out</a></div>
 				<div id="welcome-bar">
 					<div>Hi, <?php echo $_SESSION['login_name']; ?></div>
 					<div>Reg No: <?php echo $_SESSION['user_id']; ?></div>
