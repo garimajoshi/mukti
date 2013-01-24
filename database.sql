@@ -1,4 +1,4 @@
-CREATE DATABASE mukti CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE mukti13 CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS `registered_users` (
     `id` int NOT NULL auto_increment,
