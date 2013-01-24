@@ -53,9 +53,6 @@ $(document).ready(function() {
     $('#email').keyup( function() {
     	$(this).removeClass('validationerror'); 
     });
-    $('#password').keyup( function() {
-    	$(this).removeClass('validationerror'); 
-    });
     $('#college').keyup( function() {
     	$(this).removeClass('validationerror'); 
     });
@@ -93,8 +90,33 @@ $(document).ready(function() {
   	});
   }
   
+  function setupRegistrationValidate() {
+
+    $('#email').keyup( function() {
+    	$(this).removeClass('validationerror'); 
+    });
+    $('#password').keyup( function() {
+    	$(this).removeClass('validationerror'); 
+    });
+
+  	$('#loginForm').submit( function () {
+  		var toReturn = true;
+  		var email = $('#email').val();
+  		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false) {
+  			toReturn = false;
+  			$('#email').addClass('validationerror');
+  		}
+  		if ($('#password').val() == '') {
+  			toReturn = false;
+  			$('#password').addClass('validationerror');
+  		}
+  		return toReturn;
+  	});
+  }
+  
   setupLoginDialog();
   setupRegistrationValidate();
+  setupLoginValidate();
 
 /*
  * ------------------------------ HEADER ENDS ----------------------------------------------------
