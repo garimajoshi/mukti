@@ -74,7 +74,7 @@ function ValidateRegistrationSubmission()
             {
                 $error .= $inpname.':'.$inp_err."\n";
             }
-            error_message .= $error."\r\n";
+            $error_message .= $error."\r\n";
             return false;
         }        
         return true;
