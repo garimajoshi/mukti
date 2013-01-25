@@ -14,7 +14,7 @@
 			$row = mysql_fetch_array($result);
 			$count = mysql_num_rows($result);
 			
-			if(!ValidateRegistrationSubmission())
+			if(!ValidateRegistrationSubmission($_POST['name'], $_POST['email'], $_POST['password'], $_POST['phone'], $_POST['department'], $_POST['city'], $_POST['year_of_study']))
 			{
 				$error="Invalid fields";
 				echo $error;
