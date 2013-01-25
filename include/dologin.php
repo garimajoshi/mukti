@@ -14,37 +14,36 @@
 			$row = mysql_fetch_array($result);
 			$count = mysql_num_rows($result);
 			
-			if(!ValidateRegistrationSubmission($_POST['name'], $_POST['email'], $_POST['password'], $_POST['phone'], $_POST['department'], $_POST['city'], $_POST['year_of_study']))
-			{
-				$error="Invalid fields";
-				echo $error;
-			}
-			
-			else
-			{
 				if($count == 0)
 				{
-					$myname = addslashes($_POST['name']);
-					$mypassword = addslashes($_POST['password']);
-					$mypassword = md5($mypassword);
-					$myphone = addslashes($_POST['phone']);
-					$mydepartment = addslashes($_POST['department']);
-					$mycity = addslashes($_POST['city']);
-					$myyear = addslashes($_POST['year_of_study']);
-					$mycollege = addslashes($_POST['college']);
-					$confirmationcode = MakeConfirmationMd5($myemailid);
-					mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password, confirmation_code, department, year_of_study, city) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword', '$confirmationcode', '$mydepartment', '$myyear', '$mycity')") or die(mysql_error());
-
-					// registered successfully
-					$message = "Successfully Registered, check your mail for activation";
-					echo $message;
+					if(!ValidateRegistrationSubmission($_POST['name'], $_POST['email'], $_POST['password'], $_POST['phone'], $_POST['department'], $_POST['city'], $_POST['year_of_study']))
+					{
+						$error="Invalid fields";
+						echo $error;
+					}		
+					else
+					{
+						$myname = addslashes($_POST['name']);
+						$mypassword = addslashes($_POST['password']);
+						$mypassword = md5($mypassword);
+						$myphone = addslashes($_POST['phone']);
+						$mydepartment = addslashes($_POST['department']);
+						$mycity = addslashes($_POST['city']);
+						$myyear = addslashes($_POST['year_of_study']);
+						$mycollege = addslashes($_POST['college']);
+						$confirmationcode = MakeConfirmationMd5($myemailid);
+						mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password, confirmation_code, department, year_of_study, city) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword', '$confirmationcode', '$mydepartment', '$myyear', '$mycity')") or die(mysql_error());
+	
+						// registered successfully
+						$message = "Successfully Registered, check your mail for activation";
+						echo $message;
+					}
 				}
 				else
 				{
 					$error = "Email already registered";
 					echo $error;
 				}
-			}
 		}
 		else if(isset($_POST['signin']))
 		{
