@@ -44,7 +44,7 @@ function SendUserConfirmationEmail($email_id, $name, $confirmcode)
 	"$confirm_url\r\n".
 	"\r\n".
 	"Regards,\r\n".
-	"Webmaster\r\n".
+	"Webmaster\r\n";
 	
 	if(!$mailer->Send())
 	{
