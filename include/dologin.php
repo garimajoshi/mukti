@@ -13,6 +13,13 @@
 			$result = mysql_query($sql) or die(mysql_error());
 			$row = mysql_fetch_array($result);
 			$count = mysql_num_rows($result);
+			
+			if(!ValidateRegistrationSubmission())
+			{
+				$error="Invalid fields";
+				echo $error;
+			}
+			
 			if($count == 0)
 			{
 				$myname = addslashes($_POST['name']);
