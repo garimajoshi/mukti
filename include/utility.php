@@ -1,7 +1,6 @@
 <?php
 require("../phpmailer/class.phpmailer.php");
 require("../phpmailer/class.smtp.php");
-require("./validator.php");
 
 function GetAbsoluteURLFolder()
 {
@@ -54,30 +53,59 @@ function SendUserConfirmationEmail($email_id, $name, $confirmcode)
 	return true;
 }
 
-function ValidateRegistrationSubmission()
+function ValidateRegistrationSubmission($myemail, $myname, $mypassword, $myphone, $mydepartment, $mycity, $myyear, $mycollege)
+{
+    $toReturn = true;
+    
+    if(!isset($myemail) || strlen($myemail)<=0 || (false == preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $myemail)) || strlen($myemail)>30)
     {
-        $validator = new FormValidator();
-        $validator->addValidation("name","req","Please fill in Name");
-        $validator->addValidation("email","email","The input for Email should be a valid email value");
-        $validator->addValidation("email","req","Please fill in Email");
-        $validator->addValidation("college","req","Please fill in your College");
-        $validator->addValidation("password","req","Please fill in Password");
-        $validator->addValidation("department","req","Please fill in your Department");
-        $validator->addValidation("year","req","Please fill in your year of Study");
-        $validator->addValidation("city","req","Please fill in your City");
-        
-        if(!$validator->ValidateForm())
-        {
-            $error='';
-            $error_hash = $validator->GetErrors();
-            foreach($error_hash as $inpname => $inp_err)
-            {
-                $error .= $inpname.':'.$inp_err."\n";
-            }
-            $error_message .= $error."\r\n";
-            return false;
-        }        
-        return true;
+        echo 'Please enter a valid email';
+        $toReturn = false;
+        exit();
     }
+    if(!isset($myname) || strlen($myname)<=0 || strlen($myname)>30)
+    {
+        echo 'Please enter name';
+        $toReturn = false;
+        exit();
+    }
+    if(!isset($mypassword) || strlen($mypassword)<=0 || strlen($mypassword)>50)
+    {
+        echo 'Please enter a valid password';
+        $toReturn = false;
+        exit();
+    }
+    if(!isset($mydepartment) || strlen($mydepartment)<=0 || strlen($mydepartment)>50)
+    {
+        echo 'Please enter department';
+        $toReturn = false;
+        exit();
+    }
+    if(!isset($mycity) || strlen($mycity)<=0 || strlen($mycity)>50)
+    {
+        echo 'Please enter city';
+        $toReturn = false;
+        exit();
+    }
+    if(!isset($myyear) || strlen($myyear)<=0 || strlen($myyear)>20)
+    {
+        echo 'Please enter year of study';
+        $toReturn = false;
+        exit();
+    }
+    if(isset($myphone) && (false == preg_match("/^([1]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/i", $myphone)) || strlen($myphone)>20)
+    {
+        echo 'Please enter valid phone number';
+        $toReturn = false;
+        exit();
+    }
+    if(!isset($mycollege) || strlen($mycollege)<=0 || strlen($mycollege)>50)
+    {
+        echo 'Please enter college';
+        $toReturn = false;
+        exit();
+    }
+    return $toReturn;
+}
     
 ?>
