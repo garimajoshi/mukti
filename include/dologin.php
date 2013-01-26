@@ -16,21 +16,21 @@
 			
 				if($count == 0)
 				{
-					if(!ValidateRegistrationSubmission($_POST['name'], $_POST['email'], $_POST['password'], $_POST['phone'], $_POST['department'], $_POST['city'], $_POST['year_of_study']))
+					$myname = addslashes($_POST['name']);
+					$mypassword = addslashes($_POST['password']);
+					$myphone = addslashes($_POST['phone']);
+					$mydepartment = addslashes($_POST['department']);
+					$mycity = addslashes($_POST['city']);
+					$myyear = addslashes($_POST['year_of_study']);
+					$mycollege = addslashes($_POST['college']);
+					if(!ValidateRegistrationSubmission($myemail, $myname, $mypassword, $myphone, $mydepartment, $mycity, $myyear, $mycollege))
 					{
 						$error="Invalid fields";
 						echo $error;
 					}		
 					else
 					{
-						$myname = addslashes($_POST['name']);
-						$mypassword = addslashes($_POST['password']);
 						$mypassword = md5($mypassword);
-						$myphone = addslashes($_POST['phone']);
-						$mydepartment = addslashes($_POST['department']);
-						$mycity = addslashes($_POST['city']);
-						$myyear = addslashes($_POST['year_of_study']);
-						$mycollege = addslashes($_POST['college']);
 						$confirmationcode = MakeConfirmationMd5($myemailid);
 						mysql_query("INSERT INTO registered_users(email_id, name, college, phone, password, confirmation_code, department, year_of_study, city) VALUES('$myemailid', '$myname', '$mycollege', '$myphone', '$mypassword', '$confirmationcode', '$mydepartment', '$myyear', '$mycity')") or die(mysql_error());
 	
