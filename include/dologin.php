@@ -23,7 +23,7 @@
 					$mycity = addslashes($_POST['city']);
 					$myyear = addslashes($_POST['year_of_study']);
 					$mycollege = addslashes($_POST['college']);
-					if(!ValidateRegistrationSubmission($myemail, $myname, $mypassword, $myphone, $mydepartment, $mycity, $myyear, $mycollege))
+					if(!ValidateRegistrationSubmission($_POST['email'], $myname, $mypassword, $_POST['phone'], $mydepartment, $mycity, $myyear, $mycollege))
 					{
 						$error="Invalid fields";
 						echo $error;
